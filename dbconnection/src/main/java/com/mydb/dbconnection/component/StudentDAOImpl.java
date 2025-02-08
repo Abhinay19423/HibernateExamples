@@ -7,7 +7,7 @@ import com.mydb.dbconnection.entity.Student;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
+// import jakarta.transaction.Transactional;
 import java.util.List;
 
 @Component
@@ -40,16 +40,5 @@ public class StudentDAOImpl implements StudentDAO{
         TypedQuery<Student> tq = entityMan.createQuery("From Student", Student.class);
         return tq.getResultList();
     }
-
-
-    @Override
-    public void updateDetails(int id){
-        Student stud = entityMan.find(Student.class, id);
-        stud.setName("chintu");
-
-        //merge function is used to 
-        entityMan.merge(stud);
-    }
-        
 
 }

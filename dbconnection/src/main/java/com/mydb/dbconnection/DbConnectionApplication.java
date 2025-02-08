@@ -14,9 +14,11 @@ import com.mydb.dbconnection.entity.Student;
 
 @SpringBootApplication 
 public class DbConnectionApplication {
+	
 	public static void main(String[] args) {
 		SpringApplication.run(DbConnectionApplication.class, args);
 	}
+
 	@Bean
 	public CommandLineRunner getHelp(StudentDAO studDAO){ //always should be public 
 		return runner -> {
@@ -24,6 +26,8 @@ public class DbConnectionApplication {
 			// createStudent(studDAO);
 			// show(studDAO);
 			shows(studDAO);
+			show_type1(studDAO);
+			show_type2(studDAO);
 			updateDetail(studDAO);
 		};
 	}
@@ -44,6 +48,7 @@ public class DbConnectionApplication {
 		System.out.println("enter the student id .. ");
 		Scanner sc = new Scanner(System.in);
 		int id = sc.nextInt();
+		sc.close(); //closing the scanner object
 		Student temp = studDao.getDetail(id);
 		// for(Student temp : l){
 			System.out.println(temp.toString());
@@ -68,8 +73,25 @@ public class DbConnectionApplication {
 	
 
 
+	public void show_type1(StudentDAO studDao){
+		List<Student> student = studDao.type1();
+		System.out.println("the student whose email starts with @gmail.com are  ");
+		for(Student temp : student){			
+			System.out.println(temp.toString());
+		}
+	}
 
 
-
+	//this function returns the studnet having the required name 
+	public void show_type2(StudentDAO studentDAO){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the student name ");
+		String name = sc.nextLine();
+		sc.close();
+		List<Student> stud = studentDAO.type2(name);
+		for(Student temp : stud ){
+			System.out.println(temp.toString());
+		}
+	}
 
 }
