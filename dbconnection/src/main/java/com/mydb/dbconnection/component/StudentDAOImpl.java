@@ -7,6 +7,8 @@ import com.mydb.dbconnection.entity.Student;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import jakarta.transaction.Transactional;
+
 // import jakarta.transaction.Transactional;
 import java.util.List;
 
@@ -42,10 +44,12 @@ public class StudentDAOImpl implements StudentDAO{
     }
 
     @Override
+    @Transactional // @Transactional should be present to refelect the changes into the database
     public void updateDetails(int id){
         // TypedQuery<Student> tq = entityMan.createQuery("From Student where id = 
         Student stud = entityMan.find(Student.class, id);
-
+        stud.setName("abhi");
+        entityMan.merge(stud);
     }
 
     @Override
