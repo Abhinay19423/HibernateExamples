@@ -7,7 +7,7 @@ import com.mydb.dbconnection.entity.Student;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
-import jakarta.transaction.Transactional;
+// import jakarta.transaction.Transactional;
 import java.util.List;
 
 @Component
