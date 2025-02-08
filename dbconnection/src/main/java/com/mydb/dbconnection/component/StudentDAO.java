@@ -9,7 +9,7 @@ public interface StudentDAO {
     // void save(Student stud);
     Student getDetail(int id);
     List<Student> getDetails();
-
+    void createStudent(Student stud);
     void updateDetails(int id);
     // diff_method_to_retrive
     List<Student> type1();

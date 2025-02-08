@@ -2,6 +2,16 @@
 
 
 
+# Create a student table data entry 
+    enter student details  into student table using entityManager 
+    -- with the function called persist(class_object);
+    ex :    
+        public void createStudent(Student stud){
+            // Student student = new Student("ram", "ram@email.com");
+            entityMan.persist(stud);
+        }
+
+
 # retriving the values from the database 
 
 entityMan.find(ClassName.class, column_name)

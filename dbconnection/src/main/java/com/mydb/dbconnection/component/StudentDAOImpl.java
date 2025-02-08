@@ -38,6 +38,12 @@ public class StudentDAOImpl implements StudentDAO{
     }
 
     @Override
+    public void createStudent(Student stud){
+        // Student student = new Student("ram", "ram@email.com");
+        entityMan.persist(stud);
+    }
+
+    @Override
     public List<Student> getDetails(){
         TypedQuery<Student> tq = entityMan.createQuery("From Student", Student.class);
         return tq.getResultList();
