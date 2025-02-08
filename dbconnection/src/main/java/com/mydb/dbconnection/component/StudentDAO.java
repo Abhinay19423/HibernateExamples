@@ -10,6 +10,7 @@ public interface StudentDAO {
     Student getDetail(int id);
     List<Student> getDetails();
 
+    void updateDetails(int id);
     // diff_method_to_retrive
     List<Student> type1();
     List<Student> type2(String name);

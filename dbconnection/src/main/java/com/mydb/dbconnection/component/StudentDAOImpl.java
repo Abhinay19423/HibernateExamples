@@ -41,21 +41,4 @@ public class StudentDAOImpl implements StudentDAO{
         return tq.getResultList();
     }
 
-    //using "like" keyword
-    public List<Student> type1(){
-        TypedQuery<Student>  tq = entityMan.createQuery("From Student s where s.email like '%@gmail.com'", Student.class);
-        return tq.getResultList();
-    }
-
-    public List<Student> type2(String name){
-        TypedQuery<Student>  tq = entityMan.createQuery("From Student s where s.name=:theData", Student.class);
-
-        //set query paramters
-        tq.setParameter("theData",name);
-
-        //return query results
-        return tq.getResultList();
-    }
-
-
 }
