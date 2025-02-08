@@ -26,12 +26,9 @@ public class DbConnectionApplication {
 			// createStudent(studDAO);
 			// show(studDAO);
 			shows(studDAO);
-<<<<<<< HEAD
 			show_type1(studDAO);
 			show_type2(studDAO);
 			updateDetail(studDAO);
-=======
->>>>>>> parent of c1bd69c (updating the values in the student table)
 		};
 	}
 	/*private void createStudent(StudentDAO studDao){
@@ -46,6 +43,15 @@ public class DbConnectionApplication {
 		Student stud = new Student(id, name, email);
 		// studDao.save(stud);
 	}*/
+
+	public void updateDetail(StudentDAO studDao){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the student id to update the email id ");
+		int id = sc.nextInt();
+		// System.out.println("enter 
+		sc.close();
+		
+	}
 
 	public void show(StudentDAO studDao){
 		System.out.println("enter the student id .. ");

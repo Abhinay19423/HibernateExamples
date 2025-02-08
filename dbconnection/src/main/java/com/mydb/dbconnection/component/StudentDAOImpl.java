@@ -41,4 +41,23 @@ public class StudentDAOImpl implements StudentDAO{
         return tq.getResultList();
     }
 
+    @Override
+    public void updateDetails(int id){
+        // TypedQuery<Student> tq = entityMan.createQuery("From Student where id = 
+        Student stud = entityMan.find(Student.class, id);
+
+    }
+
+    @Override
+    public List<Student> type1(){
+        TypedQuery<Student> tq = entityMan.createQuery("From student s where s.email like '%@gmail.com'", Student.class);
+        return tq.getResultList();
+    }
+
+    @Override
+    public List<Student> type2(String name){
+        TypedQuery<Student> tq = entityMan.createQuery("From student s where s.name = :name", Student.class);
+        tq.setParameter("name", name);
+        return tq.getResultList();
+    }
 }
