@@ -41,4 +41,15 @@ public class StudentDAOImpl implements StudentDAO{
         return tq.getResultList();
     }
 
+
+    @Override
+    public void updateDetails(int id){
+        Student stud = entityMan.find(Student.class, id);
+        stud.setName("chintu");
+
+        //merge function is used to 
+        entityMan.merge(stud);
+    }
+        
+
 }

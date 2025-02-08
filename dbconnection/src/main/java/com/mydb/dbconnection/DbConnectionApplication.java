@@ -24,6 +24,7 @@ public class DbConnectionApplication {
 			// createStudent(studDAO);
 			// show(studDAO);
 			shows(studDAO);
+			updateDetail(studDAO);
 		};
 	}
 	/*private void createStudent(StudentDAO studDao){
@@ -56,6 +57,15 @@ public class DbConnectionApplication {
 			System.out.println(st.toString());
 		}
 	}
+
+	public void updateDetail(StudentDAO studentDAO){
+		System.out.println("enter the student id to update the details ");
+		Scanner sc = new Scanner(System.in);
+		int id = sc.nextInt();
+		studentDAO.updateDetails(id);
+		sc.close();
+	}
+	
 
 
 
