@@ -14,4 +14,8 @@ public interface StudentDAO {
     // diff_method_to_retrive
     List<Student> type1();
     List<Student> type2(String name);
+
+    //deleteing students from the table
+    void deletionObj(int id);
+    void deleteMultiple();
 }

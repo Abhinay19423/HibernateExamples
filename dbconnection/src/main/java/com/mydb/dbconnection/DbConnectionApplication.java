@@ -26,11 +26,15 @@ public class DbConnectionApplication {
 			// System.out.println("hello world");
 			// createStudent(studDAO);
 			// show(studDAO);
-			show(studDAO);
+			// show(studDAO);
 			// show_type1(studDAO);
 			// show_type2(studDAO);
-			updateDetail(studDAO);
+			// updateDetail(studDAO);
 
+			shows(studDAO);	
+			// removeStudent(studDAO);
+			// shows(studDAO);
+			removeMultipleStudents(studDAO);
 			shows(studDAO);
 			sc.close();
 		};
@@ -47,6 +51,18 @@ public class DbConnectionApplication {
 		Student stud = new Student(id, name, email);
 		// studDao.save(stud);
 	}*/
+
+
+	public void removeStudent(StudentDAO studentDao){
+		System.out.println("enter the student id whom u like to remove");
+		int id = sc.nextInt();
+
+		studentDao.deletionObj(id);
+	}
+
+	public void removeMultipleStudents(StudentDAO studentDAO){
+		studentDAO.deleteMultiple();
+	}
 
 	public void updateDetail(StudentDAO studDao){
 		
@@ -74,9 +90,14 @@ public class DbConnectionApplication {
 
 	public void shows(StudentDAO studentDAO){
 		List<Student> std = studentDAO.getDetails();
-		for(Student st : std){
-			System.out.println(st.toString());
+		if(std == null){
+			System.out.println("no students are present ");
+		}else{
+			for(Student st : std){
+				System.out.println(st.toString());
+			}
 		}
+		
 	}
 
 

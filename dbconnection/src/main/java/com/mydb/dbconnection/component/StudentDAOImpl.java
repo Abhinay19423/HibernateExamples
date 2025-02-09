@@ -70,4 +70,31 @@ public class StudentDAOImpl implements StudentDAO{
         tq.setParameter("name", name);
         return tq.getResultList();
     }
+
+    @Override
+    @Transactional
+    public void deletionObj(int id){
+        Student st = entityMan.find(Student.class, id);
+        System.out.println(st.toString());
+        entityMan.remove(st); //clear function?
+    }
+
+
+    @Override
+    @Transactional
+    public void deleteMultiple(){
+        // TypedQuery<Student> tQuery = entityMan.createQuery("delete from Student where email=:emailAddress", Student.class).executeUpdate();
+        try{
+            // int numRows = entityMan.createQuery("DELETE FROM Student s WHERE s.email = 'abhinay@gail.com'").executeUpdate();
+            int numRows = entityMan.createQuery("DELETE FROM Student").executeUpdate();
+            System.out.println("the no of student removed are " + numRows);            
+        }catch(Exception e){
+            System.out.println("the searched email is not found ");
+            throw new RuntimeException("Something went wrong ");
+        }
+        
+        // tQuery.setParameter("emailAddress", "abhinay@gmail.com");
+        // int val = entityMan.executeUpdate();
+        
+    }
 }
